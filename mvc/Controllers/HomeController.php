@@ -4,6 +4,10 @@ class HomeController
 {
     public function index()
     {
-        include __DIR__ . "/../Views/front-end/trangchu.php";
+        //Lấy dữ liệu
+        $product = new Product;
+        $products = $product->all();
+
+        include __DIR__ . "/../Views/front-end/home.php";
     }
 }

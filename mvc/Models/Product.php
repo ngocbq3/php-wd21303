@@ -34,5 +34,16 @@ class Product {
         return $result;
     }
 
-
+    //Lấy ra 1 bản ghi (1 sản phẩm)
+    public function find($id) {
+        $sql = "SELECT * FROM products WHERE id = $id";
+        //Chuẩn bị câu lệnh sql
+        $stmt = $this->conn->prepare($sql);
+        //Thực thi
+        $stmt->execute();
+        //Lấy dữ liệu
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        //Trả lại dữ liệu cho hàm 
+        return $result;
+    }
 }

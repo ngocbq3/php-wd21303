@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . "/Controllers/HomeController.php";
 require_once __DIR__ . "/Models/Database.php";
+require_once __DIR__ . "/Models/Product.php";
 
 $act = $_GET['act'] ?? 'home';
 
