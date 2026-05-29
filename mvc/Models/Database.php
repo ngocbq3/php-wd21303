@@ -4,7 +4,8 @@ class Database
 {
     public $conn; //thuộc tính dùng để lưu kết nối CSDL
 
-    public function __construct()
+    //Hàm kết nối đến csdl
+    public function connect()
     {
         //Thông tin kết nối đến CSDL
         $host = "localhost"; //server chứa CSDL
@@ -15,8 +16,9 @@ class Database
 
         try {
             //Kết nối đến CSDL để làm việc
-            $this->conn = new PDO("mysql:host=$host; dbname=$db_name; charset=utf8; port=$port", $username, $password);
+            $conn = new PDO("mysql:host=$host; dbname=$db_name; charset=utf8; port=$port", $username, $password);
             echo "Kết nối dữ liệu thành công"; //dùng để test xong xóa đi
+            return $conn;
         } catch (PDOException $e) {
             echo "Lỗi kết nối CSDL: " . $e->getMessage();
         }
