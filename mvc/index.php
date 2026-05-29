@@ -7,7 +7,6 @@ $act = $_GET['act'] ?? 'home';
 switch ($act) {
     case '':
     case 'home':
-        $db = new Database();
         $home = new HomeController;
         $home->index();
         break;
