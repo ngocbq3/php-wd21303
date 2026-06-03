@@ -17,7 +17,7 @@
                         <img src="images/<?= $pro['image'] ?>" alt="">
                         <h3><?= $pro['name'] ?></h3>
                         <p>$ <?= $pro['price'] ?></p>
-                        <a href="product-detail.html" class="btn">
+                        <a href="index.php?act=detail&id=<?= $pro['id'] ?>" class="btn">
                             Xem chi tiết
                         </a>
                     </div>

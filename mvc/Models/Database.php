@@ -17,7 +17,7 @@ class Database
         try {
             //Kết nối đến CSDL để làm việc
             $conn = new PDO("mysql:host=$host; dbname=$db_name; charset=utf8; port=$port", $username, $password);
-            echo "Kết nối dữ liệu thành công"; //dùng để test xong xóa đi
+            // echo "Kết nối dữ liệu thành công"; //dùng để test xong xóa đi
             return $conn;
         } catch (PDOException $e) {
             echo "Lỗi kết nối CSDL: " . $e->getMessage();
