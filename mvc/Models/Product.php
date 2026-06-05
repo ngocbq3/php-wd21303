@@ -53,4 +53,25 @@ class Product
         //Trả lại dữ liệu cho hàm 
         return $result;
     }
+
+    /**
+     * //Phân trang cho sản phẩm
+     * $page: trang hiện tại
+     * $perPage: Số lượng bản ghi/ 1 trang
+     * $totalPage: tổng số trang 
+     */
+    public function paginate($page=1, $perPage=10, $totalPage=1) {
+        //Bản ghi bắt đầu
+        $startRecord = ($page - 1) * $perPage;
+        $sql = "SELECT * FROM products LIMIT $startRecord, $perPage";
+
+        //Chuẩn bị câu lệnh sql
+        $stmt = $this->conn->prepare($sql);
+        //Thực thi
+        $stmt->execute();
+        //Lấy dữ liệu
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        //Trả lại dữ liệu cho hàm 
+        return $result;
+    }
 }

@@ -6,22 +6,19 @@
 
     <div class="product-list">
       <!-- Lặp sản phẩm -->
+      <?php if ($products) : ?>
+        <?php foreach ($products as $pro) : ?>
+          <div class="product-item">
+            <img src="images/<?= $pro['image'] ?>" alt="">
+            <h3><?= $pro['name'] ?></h3>
+            <p>$ <?= $pro['price'] ?></p>
+            <a href="index.php?act=detail&id=<?= $pro['id'] ?>" class="btn">
+              Xem chi tiết
+            </a>
+          </div>
+        <?php endforeach ?>
+      <?php endif ?>
 
-      <div class="product-item">
-        <img src="images/product-1.jpg" alt="" />
-        <h3>Áo sơ mi</h3>
-        <p>350.000đ</p>
-
-        <a href="product-detail.html" class="btn"> Xem chi tiết </a>
-      </div>
-
-      <div class="product-item">
-        <img src="images/product-1.jpg" alt="" />
-        <h3>Quần kaki</h3>
-        <p>500.000đ</p>
-
-        <a href="product-detail.html" class="btn"> Xem chi tiết </a>
-      </div>
     </div>
   </div>
 </section>
