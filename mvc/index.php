@@ -22,6 +22,22 @@ switch ($act) {
     case 'category':
         (new ProductController)->index();
         break;
+
+    //Admin
+    case "admin":
+        //biến $ctl để điều khiển vào các trang con của admin
+        $ctl = $_GET['ctl'] ?? '';
+        switch ($ctl) {
+            case '':
+            case 'products': //danh sách sản phẩm
+                (new AdminProductController)->index();
+                break;
+
+            default:
+                echo "<h1>404 FILE NOT FOUND</h1>";
+        }
+        
+        break;
     default:
         echo "<h1>404 FILE NOT FOUND</h1>";
 }

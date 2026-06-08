@@ -23,6 +23,21 @@ class Product
         return $result;
     }
 
+    //Lấy sản phẩm có thêm tên danh mục
+    public function getProducts()
+    {
+        //Sử dụng JOIN để nối bảng
+        $sql = "SELECT p.*, c.name cate_name FROM products as p JOIN categories c ON p.category_id=c.id ORDER BY p.id DESC;";
+        //Chuẩn bị câu lệnh sql
+        $stmt = $this->conn->prepare($sql);
+        //Thực thi
+        $stmt->execute();
+        //Lấy dữ liệu
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        //Trả lại dữ liệu cho hàm 
+        return $result;
+    }
+
     //Lấy dữ liệu sản phẩm theo danh mục
     public function productInCategory($category_id)
     {
@@ -60,7 +75,8 @@ class Product
      * $perPage: Số lượng bản ghi/ 1 trang
      * $totalPage: tổng số trang 
      */
-    public function paginate($page=1, $perPage=10, $totalPage=1) {
+    public function paginate($page = 1, $perPage = 10, $totalPage = 1)
+    {
         //Bản ghi bắt đầu
         $startRecord = ($page - 1) * $perPage;
         $sql = "SELECT * FROM products LIMIT $startRecord, $perPage";
