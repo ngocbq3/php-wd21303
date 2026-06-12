@@ -18,7 +18,7 @@
     <section class="content">
 
         <div class="action">
-            <a href="product-create.html" class="btn">
+            <a href="index.php?act=admin&ctl=product-create" class="btn">
                 + Thêm sản phẩm
             </a>
         </div>

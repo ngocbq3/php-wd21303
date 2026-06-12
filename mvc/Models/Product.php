@@ -90,4 +90,59 @@ class Product
         //Trả lại dữ liệu cho hàm 
         return $result;
     }
+
+    /**
+     * Phương thức create: để tạo mới 1 sản phẩm
+     * @param: $name, $image, $price, $quantity, $description, $category_id
+     */
+    public function create($name, $image, $price, $quantity, $description, $category_id)
+    {
+        $sql = "INSERT INTO products(name, image, price, quantity, description, category_id) VALUES(:name, :image, :price, :quantity, :description, :category_id)";
+
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bindValue(':name', $name);
+        $stmt->bindValue(':image', $image);
+        $stmt->bindValue(':price', $price);
+        $stmt->bindValue(':quantity', $quantity);
+        $stmt->bindValue(':description', $description);
+        $stmt->bindValue(':category_id', $category_id);
+
+        $stmt->execute();
+    }
+
+    /**
+     * Phương thức update: để cập nhật dữ liệu sản phẩm
+     * @param: $id, $name, $image, $price, $quantity, $description, $category_id
+     */
+    public function update($id, $name, $image, $price, $quantity, $description, $category_id)
+    {
+        $sql = "UPDATE products SET name=:name, image=:image, price=:price, quantity=:quantity, description=:description, category_id=:category_id WHERE id=:id";
+
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bindValue(':name', $name);
+        $stmt->bindValue(':image', $image);
+        $stmt->bindValue(':price', $price);
+        $stmt->bindValue(':quantity', $quantity);
+        $stmt->bindValue(':description', $description);
+        $stmt->bindValue(':category_id', $category_id);
+        $stmt->bindValue(':id', $id);
+
+        $stmt->execute();
+    }
+
+    /**
+     * Phương thức delete: xóa dữ liệu của sản phẩm theo $id
+     */
+    public function delete($id){
+        $sql = "DELETE FROM products WHERE id=:id";
+
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bindValue(':id', $id);
+
+        $stmt->execute();
+    }
+
 }

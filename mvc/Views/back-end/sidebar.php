@@ -19,8 +19,8 @@
             <h2 class="logo">ADMIN</h2>
 
             <ul class="menu">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="products.html">Sản phẩm</a></li>
+                <li><a href="index.php?act=admin">Dashboard</a></li>
+                <li><a href="index.php?act=admin&ctl=products">Sản phẩm</a></li>
                 <li><a href="#">Danh mục</a></li>
                 <li><a href="#">Đơn hàng</a></li>
                 <li><a href="#">Người dùng</a></li>

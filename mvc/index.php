@@ -32,12 +32,19 @@ switch ($act) {
             case 'products': //danh sách sản phẩm
                 (new AdminProductController)->index();
                 break;
+            case 'product-create':
+                (new AdminProductController)->create();
+                break;
+            case 'product-store':
+                (new AdminProductController)->store();
+                break;
 
             default:
                 echo "<h1>404 FILE NOT FOUND</h1>";
         }
-        
+
         break;
+    //Kết thúc admin
     default:
         echo "<h1>404 FILE NOT FOUND</h1>";
 }

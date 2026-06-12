@@ -7,38 +7,47 @@
   </header>
 
   <section class="content">
-    <form class="form">
+    <form class="form" action="index.php?act=admin&ctl=product-store" method="POST" enctype="multipart/form-data">
       <div class="form-group">
         <label>Tên sản phẩm</label>
 
-        <input type="text" />
+        <input type="text" name="name" />
       </div>
 
       <div class="form-group">
         <label>Giá sản phẩm</label>
 
-        <input type="number" />
+        <input type="number" name="price" />
+      </div>
+
+      <div class="form-group">
+        <label>Số lượng</label>
+
+        <input type="number" name="quantity" />
       </div>
 
       <div class="form-group">
         <label>Danh mục</label>
 
-        <select>
-          <option>Thời trang</option>
-          <option>Điện thoại</option>
+        <select name="category_id">
+          <?php foreach ($categories as $cate) : ?>
+            <option value="<?= $cate['id'] ?>">
+              <?= $cate['name'] ?>
+            </option>
+          <?php endforeach ?>
         </select>
       </div>
 
       <div class="form-group">
         <label>Hình ảnh</label>
-
-        <input type="file" />
+         
+        <input type="file" name="image" />
       </div>
 
       <div class="form-group">
         <label>Mô tả</label>
 
-        <textarea rows="5"></textarea>
+        <textarea rows="5" name="description"></textarea>
       </div>
 
       <button class="btn">Thêm sản phẩm</button>
